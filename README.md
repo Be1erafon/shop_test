@@ -1,4 +1,4 @@
-Прмимер доступен на http://soctools.pw/shop
+Пример доступен на http://soctools.pw/shop
 <br>
 GET возвращает всю колекцию. /shop <br>
 GET возвращает один объект. /shop/{id} <br>
