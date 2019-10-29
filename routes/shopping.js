@@ -14,6 +14,28 @@ app.get('/shop', async (req,res) => {
   }
 })
 
+app.get('/shop/:id', async (req,res) => {
+  let resp = {}
+  try{
+    let data = await db.Shop.findOne({ where: { id: req.params.id } });
+    if(data != null){
+      resp.status = 'allow'
+      resp.id = req.params.id
+      resp.collection = data
+      res.send(resp);
+    } else {
+      resp.status = 'error'
+      resp.params = 'not found id'
+      resp.id = req.params.id
+      res.send(resp);
+    }
+  } catch(e){
+     console.log(e)
+     resp.status = 'error'
+     res.send(resp);
+  }
+})
+
 app.post('/shop', async (req,res) => { 
   let resp = {}
 try{
